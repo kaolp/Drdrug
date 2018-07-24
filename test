@@ -1,0 +1,17 @@
+import csv
+dDict={}
+with open ('itcont.csv', 'r') as f:
+    reader=csv.DictReader(f)
+    for row in reader:
+        print(row)
+        myId=row['id']
+        drugDict={}
+        if(myId in idDict):
+            drugDict=idDict.get(myId)
+            drugDict[row['drug_name']]=row['drug_cost']
+            print('xxx',drugDict)
+        else:
+            drugDict[row['drug_name']]=row['drug_cost']
+            print('yyy',drugDict)
+            idDict[row['id']]=drugDict
+            print(idDict)
