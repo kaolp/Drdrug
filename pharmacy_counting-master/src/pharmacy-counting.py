@@ -1,4 +1,5 @@
 import csv
+from decimal import Decimal
 drugNameDict={}
 with open ('..\input\itcont.txt', 'r') as f:
     reader=csv.DictReader(f)
@@ -18,5 +19,5 @@ for drugName in drugNameDict:
     for id in idDict:
         count=count + 1
         drugCost=idDict.get(id)
-        totalCost=totalCost + float(drugCost)
+        totalCost=totalCost + Decimal(drugCost)
     print (drugName + ',' + str (count) + ',' + str(totalCost))
